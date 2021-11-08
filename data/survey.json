@@ -1,0 +1,14 @@
+[
+     {
+          "uuid": 1636394532708,
+          "creator": 1636367119231,
+          "questions": ["question1", "question2"],
+          "parameters": {
+               "lowAge": 5,
+               "highAge": 15,
+               "gender": ["Male", "Female"]
+          },
+          "respondents": [],
+          "submissions": []
+     }
+]

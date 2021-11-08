@@ -1,0 +1,20 @@
+[
+     {
+          "uuid": 1636367119231,
+          "name": "admin",
+          "email": "admin@admin",
+          "password": "admin",
+          "gender": "male",
+          "age": 45,
+          "type": "admin"
+     },
+     {
+          "uuid": 1636367138202,
+          "name": "user",
+          "email": "user@user",
+          "password": "user",
+          "gender": "male",
+          "age": 20,
+          "type": "user"
+     }
+]

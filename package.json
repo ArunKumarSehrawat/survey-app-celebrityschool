@@ -1,0 +1,25 @@
+{
+  "name": "survey-app-celebrityschool",
+  "version": "1.0.0",
+  "description": "app to create and conduct surveys",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "devStart": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArunKumarSehrawat/survey-app-celebrityschool.git"
+  },
+  "author": "Arun Kumar Sehrawat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArunKumarSehrawat/survey-app-celebrityschool/issues"
+  },
+  "homepage": "https://github.com/ArunKumarSehrawat/survey-app-celebrityschool#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}
