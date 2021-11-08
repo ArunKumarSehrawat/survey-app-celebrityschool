@@ -93,6 +93,33 @@ const userExistsAndIsAdmin = (uuid, Users) => {
      return { found, message };
 };
 
+const updateASurvey = (survey, questions, parameters) => {
+     survey.questions = questions;
+     survey.parameters = parameters;
+     return survey;
+};
+
+const surveyExistsAndUserIsReal = (uuid, creator, Surveys) => {
+     let message = null;
+     let found = null;
+     let index = null;
+     for (let i = 0; i < Surveys.length; i++) {
+          if (Surveys[i].uuid === uuid) {
+               if (Surveys[i].creator === creator) {
+                    found = true;
+                    index = i;
+                    break;
+               } else {
+                    found = true;
+                    message = "Creator did not match";
+                    break;
+               }
+          }
+     }
+     if (!found && !message) message = "Survey does not exists";
+     return { found, message, index };
+};
+
 module.exports = {
      generateUUID: generateUUID,
      generateUser: generateUser,
@@ -102,4 +129,6 @@ module.exports = {
      generateSurvey: generateSurvey,
      updateSurveys: updateSurveys,
      userExistsAndIsAdmin: userExistsAndIsAdmin,
+     updateASurvey: updateASurvey,
+     surveyExistsAndUserIsReal: surveyExistsAndUserIsReal,
 };

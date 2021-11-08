@@ -14,6 +14,7 @@ let Surveys = JSON.parse(fs.readFileSync("./data/survey.json", { encoding: "utf8
 
 /****************** API ENDPOINTS ************/
 
+// creation of an user
 app.post("/register", (req, res) => {
      const { name, age, gender, type, email, password } = req.body;
 
@@ -26,6 +27,7 @@ app.post("/register", (req, res) => {
      }
 });
 
+// logging in of the user
 app.post("/login", (req, res) => {
      const { email, password } = req.body;
      const login = utilities.authenticateUser(email, password, Users);
@@ -36,16 +38,41 @@ app.post("/login", (req, res) => {
      } else res.send(login.message);
 });
 
-app.post("/createSurvey", (req, res) => {
-     const { uuid, questions, parameters } = req.body;
-     const userValidate = utilities.userExistsAndIsAdmin(Number(uuid), Users);
+// send all applicable surveys
+app.get("/survey", (req, res) => {});
 
-     if (userValidate.found && !userValidate.message) {
+// creation of a survey
+app.post("/survey", (req, res) => {
+     const { uuid, questions, parameters } = req.body;
+     const { found, message } = utilities.userExistsAndIsAdmin(Number(uuid), Users);
+
+     if (found && !message) {
           Surveys.push(utilities.generateSurvey(Number(uuid), questions, parameters));
           utilities.updateSurveys(Surveys);
           res.sendStatus(200);
      } else {
-          res.status(404).send(userValidate.message);
+          res.status(404).send(message);
+     }
+});
+
+// update questions or parameters in a survey
+app.patch("/survey", (req, res) => {
+     const { uuid, creator, questions, parameters } = req.body;
+     const { found, message, index } = utilities.surveyExistsAndUserIsReal(Number(uuid), Number(creator), Surveys);
+
+     /*
+      *    The survey uuid must be valid
+      *    The creator must be valid and should be admin
+      *    The creator must be the creator of that particular survey
+      */
+
+     if (found && !message) {
+          const newSurvey = utilities.updateASurvey(Surveys[index], questions, parameters);
+          Surveys.splice(index, 1, newSurvey);
+          utilities.updateSurveys(Surveys);
+          res.sendStatus(200);
+     } else {
+          res.status(404).send(message);
      }
 });
 

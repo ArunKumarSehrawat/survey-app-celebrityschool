@@ -50,7 +50,7 @@ Success : `uuid, name, email, type, age, gender`
 ---
 
 3. **Create Survey** :  
-Endpoint : [http://localhost:3000/createSurvey](http://localhost:3000/createSurvey)  
+Endpoint : [http://localhost:3000/survey](http://localhost:3000/survey)  
 Method : `POST` - `RAW - JSON`  
 *Request* :
 ```json
@@ -61,10 +61,33 @@ Method : `POST` - `RAW - JSON`
      "parameters": {
           "lowAge": 5,
           "highAge": 15,
-          "gender": ["Male", "Female"]
+          "gender": ["male", "female"]
      }
 }
 ```  
 *Response* :  
 >failure : `User doesn't exists` OR `User is not admin`  
+success : `OK`
+
+---
+
+4. **Update Survey** :  
+Endpoint : [http://localhost:3000/survey](http://localhost:3000/survey)  
+Method : `PATCH` - `RAW - JSON`  
+*Request* :
+```json
+{
+     /* uuid is the uuid of the survey, creator is the uuid of the creator */
+     "uuid": 686543213565,
+     "creator" : 16546841316,
+     "questions": ["question1", "question2", "more questions"],
+     "parameters": {
+          "lowAge": 0,
+          "highAge": 50,
+          "gender": ["male"]
+     }
+}
+```  
+*Response* :  
+>failure : `Survey does not exists` OR `Creator did not match`  
 success : `OK`
