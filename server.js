@@ -39,7 +39,24 @@ app.post("/login", (req, res) => {
 });
 
 // send all applicable surveys
-app.get("/survey", (req, res) => {});
+app.get("/survey", (req, res) => {
+     const { uuid } = req.query;
+
+     const user = utilities.getUserData(Number(uuid), Users);
+     if (!user) {
+          res.status(404).send("Wrong uuid");
+     } else if (user.type === "admin") {
+          res.json(Surveys.filter((survey) => survey.creator === Number(uuid)));
+     } else if (user.type === "user") {
+          const applicableSurveys = Surveys.filter(
+               (survey) =>
+                    survey.parameters.lowAge <= user.age &&
+                    survey.parameters.highAge >= user.age &&
+                    survey.parameters.gender.includes(user.gender)
+          );
+          res.json(applicableSurveys);
+     }
+});
 
 // creation of a survey
 app.post("/survey", (req, res) => {

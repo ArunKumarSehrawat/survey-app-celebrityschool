@@ -91,3 +91,16 @@ Method : `PATCH` - `RAW - JSON`
 *Response* :  
 >failure : `Survey does not exists` OR `Creator did not match`  
 success : `OK`
+
+---
+
+5. **Find Applicable Survey** :  
+Endpoint : [http://localhost:3000/survey](http://localhost:3000/survey)  
+Method : `GET` - `Query String`  
+*Request* :
+```
+http://localhost:3000/survey?uuid=<uuid of user>
+```  
+*Response* :  
+>failure : `Wrong uuid`  
+success : `Applicable surveys in JSON`

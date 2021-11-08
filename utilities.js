@@ -120,6 +120,15 @@ const surveyExistsAndUserIsReal = (uuid, creator, Surveys) => {
      return { found, message, index };
 };
 
+const getUserData = (uuid, Users) => {
+     for (let i = 0; i < Users.length; i++) {
+          if (Users[i].uuid === uuid) {
+               return Users[i];
+          }
+     }
+     return false;
+};
+
 module.exports = {
      generateUUID: generateUUID,
      generateUser: generateUser,
@@ -131,4 +140,5 @@ module.exports = {
      userExistsAndIsAdmin: userExistsAndIsAdmin,
      updateASurvey: updateASurvey,
      surveyExistsAndUserIsReal: surveyExistsAndUserIsReal,
+     getUserData: getUserData,
 };

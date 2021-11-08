@@ -1,20 +1,56 @@
 [
-     {
-          "uuid": 1636367119231,
-          "name": "admin",
-          "email": "admin@admin",
-          "password": "admin",
-          "gender": "male",
-          "age": 45,
-          "type": "admin"
-     },
-     {
-          "uuid": 1636367138202,
-          "name": "user",
-          "email": "user@user",
-          "password": "user",
-          "gender": "male",
-          "age": 20,
-          "type": "user"
-     }
+  {
+    "uuid": 1636367119231,
+    "name": "admin",
+    "email": "admin@admin",
+    "password": "admin",
+    "gender": "male",
+    "age": 45,
+    "type": "admin"
+  },
+  {
+    "uuid": 1636367138202,
+    "name": "user",
+    "email": "user@user",
+    "password": "user",
+    "gender": "male",
+    "age": 20,
+    "type": "user"
+  },
+  {
+    "uuid": 1636405774842,
+    "name": "mayank",
+    "email": "mayank@gmail.com",
+    "password": "opera",
+    "gender": "male",
+    "age": 22,
+    "type": "user"
+  },
+  {
+    "uuid": 1636405805058,
+    "name": "karan",
+    "email": "karan@gmail.com",
+    "password": "karankaran",
+    "gender": "male",
+    "age": 30,
+    "type": "user"
+  },
+  {
+    "uuid": 1636405850800,
+    "name": "tarunna",
+    "email": "tarunna@gmail.com",
+    "password": "tarunanatarunna",
+    "gender": "female",
+    "age": 25,
+    "type": "user"
+  },
+  {
+    "uuid": 1636405885221,
+    "name": "kartik",
+    "email": "sondukartik@gmail.com",
+    "password": "sleepingbeauty",
+    "gender": "male",
+    "age": 40,
+    "type": "user"
+  }
 ]

@@ -20,5 +20,58 @@
     },
     "respondents": [],
     "submissions": []
+  },
+  {
+    "uuid": 1636406019501,
+    "creator": 1636367119231,
+    "questions": [
+      "How was your experience?",
+      "Did you find any bugs?"
+    ],
+    "parameters": {
+      "lowAge": 30,
+      "highAge": 60,
+      "gender": [
+        "male",
+        "female"
+      ]
+    },
+    "respondents": [],
+    "submissions": []
+  },
+  {
+    "uuid": 1636406048311,
+    "creator": 1636367119231,
+    "questions": [
+      "How was your experience?",
+      "Did you find any bugs?"
+    ],
+    "parameters": {
+      "lowAge": 0,
+      "highAge": 60,
+      "gender": [
+        "female"
+      ]
+    },
+    "respondents": [],
+    "submissions": []
+  },
+  {
+    "uuid": 1636406066729,
+    "creator": 1636367119231,
+    "questions": [
+      "How was your experience?",
+      "Did you find any bugs?"
+    ],
+    "parameters": {
+      "lowAge": 20,
+      "highAge": 25,
+      "gender": [
+        "male",
+        "female"
+      ]
+    },
+    "respondents": [],
+    "submissions": []
   }
 ]
