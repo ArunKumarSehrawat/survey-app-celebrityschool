@@ -1,54 +1,32 @@
 [
   {
-    "uuid": 1636394532708,
+    "uuid": 1636453693948,
     "creator": 1636367119231,
     "questions": [
       "question1",
       "question2",
-      "question1",
-      "question2",
-      "question1",
-      "question2"
+      "more questions"
     ],
     "parameters": {
       "lowAge": 0,
-      "highAge": 40,
+      "highAge": 50,
       "gender": [
-        "male",
-        "female"
+        "male"
       ]
     },
     "respondents": [],
     "submissions": []
   },
   {
-    "uuid": 1636406019501,
+    "uuid": 1636453714381,
     "creator": 1636367119231,
     "questions": [
       "How was your experience?",
       "Did you find any bugs?"
     ],
     "parameters": {
-      "lowAge": 30,
-      "highAge": 60,
-      "gender": [
-        "male",
-        "female"
-      ]
-    },
-    "respondents": [],
-    "submissions": []
-  },
-  {
-    "uuid": 1636406048311,
-    "creator": 1636367119231,
-    "questions": [
-      "How was your experience?",
-      "Did you find any bugs?"
-    ],
-    "parameters": {
-      "lowAge": 0,
-      "highAge": 60,
+      "lowAge": 38,
+      "highAge": 42,
       "gender": [
         "female"
       ]
@@ -57,18 +35,44 @@
     "submissions": []
   },
   {
-    "uuid": 1636406066729,
+    "uuid": 1636453723142,
     "creator": 1636367119231,
     "questions": [
       "How was your experience?",
       "Did you find any bugs?"
     ],
     "parameters": {
-      "lowAge": 20,
-      "highAge": 25,
+      "lowAge": 15,
+      "highAge": 50,
       "gender": [
-        "male",
         "female"
+      ]
+    },
+    "respondents": [
+      1636405850800
+    ],
+    "submissions": [
+      {
+        "uuid": 1636405850800,
+        "responses": [
+          "The api was working very smoothly",
+          "Didn't encounter any bugs"
+        ]
+      }
+    ]
+  },
+  {
+    "uuid": 1636453729191,
+    "creator": 1636367119231,
+    "questions": [
+      "How was your experience?",
+      "Did you find any bugs?"
+    ],
+    "parameters": {
+      "lowAge": 15,
+      "highAge": 50,
+      "gender": [
+        "male"
       ]
     },
     "respondents": [],

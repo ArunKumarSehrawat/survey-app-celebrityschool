@@ -52,8 +52,11 @@ app.get("/survey", (req, res) => {
                (survey) =>
                     survey.parameters.lowAge <= user.age &&
                     survey.parameters.highAge >= user.age &&
-                    survey.parameters.gender.includes(user.gender)
+                    survey.parameters.gender.includes(user.gender) &&
+                    !survey.respondents.includes(Number(uuid))
           );
+          // const applicableSurveys = appSurveys.filter((survey) => !survey.respondents.includes(Number(uuid)));
+
           res.json(applicableSurveys);
      }
 });
@@ -90,6 +93,20 @@ app.patch("/survey", (req, res) => {
           res.sendStatus(200);
      } else {
           res.status(404).send(message);
+     }
+});
+
+// responding to a survey
+app.patch("/survey/res", (req, res) => {
+     const { uuid, respondent, responses } = req.body;
+     const userAlreadyApplied = Surveys.filter((survey) => survey.respondents.includes(Number(respondent)));
+
+     if (!utilities.checkSurveyWithUUID(Number(uuid), Surveys)) res.status(404).send("Wrong survey id");
+     else if (!utilities.checkUserWithUUID(respondent, Users)) res.status(404).send("Wrong user id");
+     else if (userAlreadyApplied.length) res.status(404).send("User has already responded to the survey");
+     else {
+          const newSurvey = utilities.addSurveyResponse(Number(uuid), Number(respondent), responses, Surveys);
+          res.json(newSurvey);
      }
 });
 

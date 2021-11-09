@@ -1,7 +1,10 @@
 # survey-api-celebrityschool
+## Assigment
+This API was designed and implement by Arun Kumar Sehrawat for the purpose of Proof Of Concept assignment, assigned to me by Mr. Siddharth Prabhakar.
 
-### Use PostMan to communicate with the API
-### As per conversation with Prateek Sir, this app uses files inside the `data` directory to store `USERS` and `SURVEYS`.
+
+ Use PostMan to communicate with the API.  
+ As per conversation with Prateek Sir, this app uses files inside the `data` directory to store `USERS` and `SURVEYS`.
 
 ---
 
@@ -103,4 +106,27 @@ http://localhost:3000/survey?uuid=<uuid of user>
 ```  
 *Response* :  
 >failure : `Wrong uuid`  
-success : `Applicable surveys in JSON`
+success : `Applicable surveys according to Age and Gender in JSON`
+
+---
+
+6. **Respond to Applicable Surveys** :  
+Endpoint : [http://localhost:3000/survey/res](http://localhost:3000/survey/res)  
+Method : `PATCH` - `RAW JSON`
+*Request* :
+```json
+{
+     "uuid" : "uuid of the survey",
+     "respondent" : "uuid of the respondent",
+     "responses" : ["answer1", "answer2", "..."]
+}
+```
+*Response* :
+>failure : `Wrong survey id` OR `Wrong user`  
+success : `OK`  
+
+---  
+
+# Testing
+1. Unit testing was done with all the endpoints of the API.
+2. Integration testing was done before the last commit. Everything is secure and all the endpoints work with `form data`, `raw json` and `query parameters`.

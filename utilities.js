@@ -30,7 +30,9 @@ const generateSurvey = (creatorUUID, questions, parameters) => {
 };
 
 const userExists = (newEmail, userDB) => {
-     for (let i = 0; i < userDB.length; i++) if (userDB[i].email === newEmail) return true;
+     for (let i = 0; i < userDB.length; i++) {
+          if (userDB[i].email === newEmail) return true;
+     }
      return false;
 };
 
@@ -129,6 +131,31 @@ const getUserData = (uuid, Users) => {
      return false;
 };
 
+const checkUserWithUUID = (uuid, Users) => {
+     for (let i = 0; i < Users.length; i++) {
+          if (Users[i].uuid === uuid) return true;
+     }
+     return false;
+};
+
+const checkSurveyWithUUID = (uuid, Surveys) => {
+     for (let i = 0; i < Surveys.length; i++) {
+          if (Surveys[i].uuid === uuid) return true;
+     }
+     return false;
+};
+
+const addSurveyResponse = (uuid, respondent, responses, Surveys) => {
+     for (let i = 0; i < Surveys.length; i++) {
+          if (Surveys[i].uuid === uuid) {
+               Surveys[i].respondents.push(respondent);
+               Surveys[i].submissions.push({ uuid: respondent, responses: responses });
+               updateSurveys(Surveys);
+               return Surveys[i];
+          }
+     }
+};
+
 module.exports = {
      generateUUID: generateUUID,
      generateUser: generateUser,
@@ -141,4 +168,7 @@ module.exports = {
      updateASurvey: updateASurvey,
      surveyExistsAndUserIsReal: surveyExistsAndUserIsReal,
      getUserData: getUserData,
+     checkUserWithUUID: checkUserWithUUID,
+     checkSurveyWithUUID: checkSurveyWithUUID,
+     addSurveyResponse: addSurveyResponse,
 };
